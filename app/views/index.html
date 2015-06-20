@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script data-require="angular.js@1.3.10" data-semver="1.3.10" src="https://code.angularjs.org/1.3.10/angular.js"></script>
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> 
+      <script src="../scripts/script.js"></script>
+  </head>
+
+<!--<body ng-app="numberExample">
+    <form name="myForm" ng-submit="submit()"  ng-controller="MainCtrl">
+
+        <div>
+            <div class="row">
+                <div class="row">
+                    <h4>Enter the Meal Details</h4>
+                    <hr><br>
+                    <label class="col-md-1">Base Meal Price :</label>
+                    <label for="description" class="col-md-1">$ </label>
+                    <input type="text" class="col-md-1" width="30px" name="basemealprice" ng-model="myForm.basemealprice">
+                    <span ng-show="myForm.basemealprice.$valid">Basemealprice should be numeric value</span>
+                    <br>
+                    <label for="description">Tax Rate :</label>
+                    <label for="description">% </label>
+                    <input type="text" width="30px" max="3">
+                    <input type="number" ng-model="theValue" name="theValue" step="1" min="0" max="10" ng-pattern="integerval" required>
+
+                    <span ng-show="myForm.theValue.$invalid">Hey! No letters, buddy!</span>
+
+
+                    <label>Number:<input type="number" name="input" ng-model="example.value" min="0" max="99" required></label>
+                    <div role="alert">
+                        <span class="error" ng-show="myForm.input.$error.required">Required!</span>
+                        <span class="error" ng-show="myForm.input.$error.number">Not valid number!</span>
+                    </div>
+                    <tt>value = {{example.value}}</tt><br />
+                    <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br />
+                    <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br />
+                    <tt>myForm.$valid = {{myForm.$valid}}</tt><br />
+                    <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br />
+
+
+                    <br>
+                    <label for="description">Tip Percentage :</label>
+                    <label for="description">% </label>
+                    <input type="text" width="30px" max="3">
+                    <br><br><br><br>
+                    <input type="submit" id="submit" value="Submit form" />
+                    <button type="submit">cancel</button>
+                    <hr><br>
+                </div>
+
+                <div class="form-group col-md-8">
+                    <label for="description">Customer Charges</label>
+                    <hr>
+                    <label for="description">Subtotal</label>
+                    <label for="description">0.00</label>
+                    <br>
+                    <label for="description">Tip</label>
+                    <label for="description">0.00</label>
+                    <hr>
+                </div>'
+
+
+                '
+                <div>
+                    <label class="col-md-1">Subtotal</label>
+                    <label class="col-md-1">Tip</label>
+                </div>
+
+
+
+            </div>
+
+    </form>
+</body>-->
+
+
+
+<body ng-app="wsEx">
+    <!--html form for Meal Details  -->
+    <div ng-controller="calCtrl">
+        <form name="meal" ng-submit="submit(basemeal, tax,tip)">
+        <!--<form name="meal" >-->
+            <table>
+                <tr >
+                    <td>
+                        <h2>Waitstaff Calculator</h2>
+                        <br /><br />
+                        <h4>Enter the Meal Details</h4>
+                        Base Meal Price: <input ng-model="basemeal">
+                        Tax Rate: <input ng-model="tax">
+                        Tip Percentage: <input ng-model="tip">
+                        <br /><br /><br /><br />
+                        <input type="submit" value="Submit" class="btn btn-small">
+                        <input type="submit" value="Cancel" class="btn btn-small">
+                        <hr />
+                        <br /><br /><br />
+                        <h4>Customer   charges</h4>
+                        SubTotal: <label for="description">{{customerCharges.subTotal  | currency}}</label>
+                        <br />
+                        Tip: <label for="description">{{customerCharges.tip  | currency}}</label>
+                        <hr />
+                        Total: <label for="description">{{customerCharges.total  | currency}}</label>
+                        <br /><br /><br />
+                        <h4>My Earning Info</h4>
+                        Tip Total: <label for="description">{{earnings.tipTotal  | currency}}</label>
+                        <br />
+                        Meal Count: <label for="description">{{earnings.mealCount}}</label>
+                        <br />
+                        <!--Meal Count: <label for="description">{{total(tip) | currency}}</label>
+                        <br />-->
+                        Average Tip Per Meal: <label for="description">{{earnings.avgTipPerMeal  | currency}}</label>
+                        <br /><br />
+                        <input type="submit" value="Reset" class="btn btn-small">
+                    </td>
+                </tr>
+                
+            </table>
+
+            
+        </form>
+        <div>
+            <!-- My earnings -->
+        </div>
+        <div>
+            <!-- Customer charges -->
+        </div>
+    </div>
+</body>
+</html>
